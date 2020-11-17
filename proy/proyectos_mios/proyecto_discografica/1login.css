@@ -1,0 +1,45 @@
+body{
+    background-color: #3B4866;
+}
+.titulo{
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+    font-family:'Cabin', sans-serif;
+    font-size: x-large;
+}
+.pestana_login{
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid black;
+    font-family: 'Libre Franklin', sans-serif;
+    margin-right: 25%;
+    margin-left: 25%;
+    box-shadow: 3px 2px 2px 0px;
+}
+.pestana_login h3{
+    text-align: center;
+    color: black;
+}
+#formulario{
+    margin-left: 5%;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#formulario input{
+    height: 30px;
+    border-radius: 5px;
+}
+#usuario{
+    width: 40%;
+}
+#contrasena{
+    width: 40%;
+}
+#boton{
+    font-size: 20px;
+    font-family: 'Libre Franklin', sans-serif;
+    background-color: #325BBF;
+    color: white;
+}
