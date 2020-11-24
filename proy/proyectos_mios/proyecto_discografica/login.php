@@ -36,13 +36,20 @@
     <div class="pestana_login">
         <h3>Acceso corporativo</h3>
         <div id="formulario">
-        <form action="">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> "method="POST">
             <label for="usuario">Usuario</label>
-            <input type="text" id="usuario" placeholder="Introduce el usuario"><br><br>
+            <input name="usuario" type="text" id="usuario" placeholder="Introduce el usuario" 
+            value="<?php if(isset($usuario)) echo $usuario;?>"><br><br>
             <label for="contrasena">Contraseña</label>
-            <input type="password" id="contrasena" placeholder="Introduce la contraseña"><br><br>
+            <input name="contrasena"type="password" id="contrasena" placeholder="Introduce la contraseña"><br><br>
             <input id="boton" type="submit" name="" value="Acceder">
         </form>
+        </div>
+        <div>
+            <?php if(isset($_GET["redirigido"])){
+                echo "<p>Haz login para continuar</p>";
+            }
+            ?>
         </div>
         <div>
             <?php
