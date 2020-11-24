@@ -1,5 +1,5 @@
 <?php
-    require "base_datos.php";
+    require "conexion_bd.php";
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
@@ -11,7 +11,8 @@
         }else{
             session_start();
             $_SESSION["usuario"] = $introd_usu;
-            header("Location: 2cabecera.php");
+            header("Location: cabecera.php");
+            return;
         }
     }
 ?>
@@ -42,6 +43,13 @@
             <input type="password" id="contrasena" placeholder="Introduce la contraseña"><br><br>
             <input id="boton" type="submit" name="" value="Acceder">
         </form>
+        </div>
+        <div>
+            <?php
+                if(isset($error) and $error == true){
+                    echo "<h4>Revise usuario y contraseña</h4>";
+                }
+            ?>
         </div>
     </div>
 </body>
