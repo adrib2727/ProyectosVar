@@ -3,5 +3,5 @@
 	<ip>127.0.0.1</ip>
     <nombre>pedidos</nombre>
     <usuario>root</usuario>
-    <clave></clave>    
+    <clave>Mysql27</clave>    
 </configuracion>

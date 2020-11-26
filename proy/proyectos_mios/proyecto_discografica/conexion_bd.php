@@ -1,6 +1,4 @@
 <?php
-session_start();
-/*Función para la llamada en conexion de la función de abajo*/
 function leer_config($nombre, $esquema){
 	$config = new DOMDocument();
 	$config->load($nombre);
@@ -20,18 +18,15 @@ function leer_config($nombre, $esquema){
 	$resul[] = $clave[0];
 	return $resul;
 }
-/*Función que me comprueba el login de la página*/
-function comprobar_usuario($usuario_post, $clave_post){
-	$conexion = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
-	$bd = new PDO($conexion[0], $conexion[1], $conexion[2]);
-    $consulta = "SELECT usuario, clave FROM seguridad
-                WHERE usuario = $usuario_post AND clave = $clave_post";
-	$resul = $bd->query($consulta);	
+function comprobar_usuario($nombre, $clave){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	$ins = "SELECT id_seguridad, usuario FROM seguridad WHERE usuario = '$nombre' 
+			AND clave = '$clave'";
+	$resul = $bd->query($ins);	
 	if($resul->rowCount() === 1){		
-		return $resul->fetch();	
-		echo "Conexión a la base de datos realizada";	
+		return $resul->fetch();		
 	}else{
 		return FALSE;
 	}
 }
-?>
