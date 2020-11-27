@@ -1,3 +1,11 @@
+<?php
+    require "conexion_bd.php";
+
+    if(!empty($_POST["usuario"]) && !empty($_POST["contrasena"])){
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +25,7 @@
     <div class="pestana_login">
         <h3>Acceso corporativo</h3>
         <div id="formulario">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> "method="POST">
+        <form action="login.php" method="post">
             <label for="usuario">Usuario</label>
             <input name="usuario" type="text" id="usuario" placeholder="Introduce el usuario" 
             value="<?php if(isset($usuario)) echo $usuario;?>"><br><br>
@@ -25,19 +33,6 @@
             <input name="contrasena"type="password" id="contrasena" placeholder="Introduce la contraseña"><br><br>
             <input id="boton" type="submit" name="" value="Acceder">
         </form>
-        </div>
-        <div>
-            <?php if(isset($_GET["redirigido"])){
-                echo "<p>Haz login para continuar</p>";
-            }
-            ?>
-        </div>
-        <div>
-            <?php
-                if(isset($error) and $error == true){
-                    echo "<h4>Revise usuario y contraseña</h4>";
-                }
-            ?>
         </div>
     </div>
 </body>
