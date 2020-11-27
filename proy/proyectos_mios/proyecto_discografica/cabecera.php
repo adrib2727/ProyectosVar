@@ -1,7 +1,5 @@
 <header>
- <a href="categorias.php">Home</a>
- <a href="carrito.php">Ver carrito</a> 
- <a href="logout.php">Cerrar sesión</a>
+ <a href="principal.php">Volver a la página principal</a>
 </header>
 <hr>
 

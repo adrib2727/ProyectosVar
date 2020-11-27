@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">  
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap" rel="stylesheet">  
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
     <title>Gestor Discográfico</title>
     <style>
         body{
@@ -32,7 +34,7 @@
         }
         #h1primero{
             text-align: center;
-            font-family:'Cabin', sans-serif;
+            font-family: 'Xanh Mono', monospace;
             font-size: 50px;
         }
         #titulo h2{
@@ -64,6 +66,17 @@
             margin-left: 5px;
             margin-right: 8px;
         }
+        #cuerpo{
+            float: left;
+            background-color: #9F4545;
+            margin-left: 5.3px;
+            margin-top: 5px;
+            width: 82.9%;
+            border-radius: 5px;
+            font-family: 'Libre Franklin', sans-serif;
+            text-align: center;
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -78,9 +91,11 @@
             <li><a href="companias.php">Compañías</a></li>
             <li ><a href="logout.php">Cerrar sesión</a></li>
         </ul>
-        
-        
-        
+    </div>
+    <div id="cuerpo">
+            <h2>Descubre todo lo que quieras saber acerca de las grabaciones.</h2>
+            <h2>Conoce a nuestros interpretes, ¡Adelante!.</h2>
+            <h2>Selecciona si prefieres saber acerca de las principales compañías.</h2>
     </div>
 </body>
 </html>
