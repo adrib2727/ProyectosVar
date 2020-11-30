@@ -10,92 +10,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">  
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap" rel="stylesheet">  
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Xanh+Mono&display=swap" rel="stylesheet">
-    <title>Gestor Discográfico</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Document</title>
     <style>
         body{
-            background-color: lightgrey;
+            background-color: lightblue;
         }
-        #titulo{
-            background-color: #5F626A;
-            border: 1px solid black;
-            width: 90%;
-            text-align: center;
-            margin: 0 auto 0 auto; /*En este caso el auto es un 5%*/
-            color: white;
-            width: 100%;
-            border-radius: 5px;
-            box-shadow: 2px 2px 1px 0px;
-        }
-        #h1primero{
-            text-align: center;
-            font-family: 'Xanh Mono', monospace;
-            font-size: 50px;
-        }
-        #titulo h2{
-            font-family: 'Libre Franklin', sans-serif;
-        }
-        #cabeceraLa{
-            float:left;
-            background-color: black;
-            padding-bottom: 27%;
-            margin-top: 5px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        #cabeceraLa a{
-            font-family: 'Libre Franklin', sans-serif;
+        .enlaces{
             text-decoration: none;
-            font-size: 30px;
-            border: 1px solid white;
-            border-radius: 5px;
+            font-size: 20px;
             color: white;
-            margin-right: 5px;
-        }
-        #cabeceraLa ul{
-            padding-left: 5px;
-        }
-        #cabeceraLa li{
-            list-style: none;
-            margin-bottom: 15px;
-            margin-left: 5px;
-            margin-right: 8px;
-        }
-        #cuerpo{
-            float: left;
-            background-color: #9F4545;
-            margin-left: 5.3px;
-            margin-top: 5px;
-            width: 82.9%;
+            border: 2px solid black;
             border-radius: 5px;
-            font-family: 'Libre Franklin', sans-serif;
-            text-align: center;
-            color: white;
+            background-color: white;
+            color: black;
+        }
+        .enlaces :hover{
+            background-color: yellow;
+
         }
     </style>
 </head>
 <body>
-    <div id="titulo">
-        <h1 id="h1primero">GESTOR DISCOGRÁFICO</h1>
-        <h2>!Bienvenido! Accede para consultar datos del mundo de la música</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col bg-dark text-white text-center rounded mb-2">
+                <p class="h1">
+                    Consultor discográfico
+                </p>
+                <p class="h2">
+                    ¡Bienvenido!
+                </p>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Accede a cualquiera de las opciones para consultar la información de una grabaciones</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col bg-secondary text-white text-center rounded">
+                <p class="h2">
+                    Consultas disponibles sobre las grabaciones
+                </p>
+                <p>
+                    <a class="enlaces" href="grabaciones.php">Realizar consulta sobre el estado de las grabaciones</a><br>
+                    <a class="enlaces" href="interpretes.php">Realizar consulta sobre el intérprete participante en la grabación</a><br>
+                    <a class="enlaces" href="temas.php">Realizar consluta sobre el tema asignado a la grabación</a><br>
+                </p>
+            </div>
+        </div>
     </div>
-    <div id="cabeceraLa">
-        <ul type="none">
-            <li><a href="grabaciones.php">Grabaciones</a></li>
-            <li><a href="interpretes.php">Interpretes</a></li>
-            <li><a href="companias.php">Compañías</a></li>
-            <li ><a href="logout.php">Cerrar sesión</a></li>
-        </ul>
-    </div>
-    <div id="cuerpo">
-            <h2>Descubre todo lo que quieras saber acerca de las grabaciones.</h2>
-            <h2>Conoce a nuestros interpretes, ¡Adelante!.</h2>
-            <h2>Selecciona si prefieres saber acerca de las principales compañías.</h2>
-    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
+    </script>
 </body>
 </html>

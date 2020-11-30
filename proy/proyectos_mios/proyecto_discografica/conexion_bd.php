@@ -30,7 +30,7 @@ function comprobar_usuario($nombre, $clave){
 		return FALSE;
 	}
 }
-/*Función que me devuelve las grabaciones que están en buen estado*/
+/*Función que me devuelve el estado de las grabaciones*/
 function grabaciones_devolver_estado($estado){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
@@ -43,11 +43,6 @@ function grabaciones_devolver_estado($estado){
 		return FALSE;
 	}
 }
-
-
-
-
-
 
 
 ?>

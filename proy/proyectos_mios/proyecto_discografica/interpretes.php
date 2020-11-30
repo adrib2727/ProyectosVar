@@ -1,4 +1,23 @@
+<?php
+    require "conexion_bd.php";
+    require "comprobar_ses.php";
+    comprobar_sesion();
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        
+        $estado_grabacion = grabaciones_devolver_estado($_POST["estado"]);
 
+        if($introd_usu === FALSE){
+            $error = TRUE;
+            $estado = $_POST["estado"];
+        }else{
+            session_start();
+            $_SESSION["estado"] = $estado_grabacion;
+            header("Location: mostrar_grabaciones.php");
+            return;
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,40 +31,28 @@
     </style>
 </head>
 <body>
-    <?php require "cabecera.php";?>
     <div class="container-fluid">
-        <div class="row justify-content-center">
+        <div class="row">
             <p>
-                <div class="col">
-                    <p class="display-4 text-center bg-warning">
-                        COMPAÑ
+                <div class="col bg-dark text-white text-center rounded mb-2">
+                    <p class="display-4">
+                        Intérprete de la grabación
                     </p>
                 </div>
             </p>
         </div>
         <div class="row justify-content-center">
-            <div class="col-sm-6 col-md-4 text-center">
-                <div class="form-group">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> "method="POST">
-                        <label for="estado">Consulta las grabaciones con el <strong>estado</strong> que desees</label>
-                        <input id="estado" type="text" placeholder="Bueno, Malo o Regular">
-                        <input type="submit" value="Consultar estado">
-                    </form>
-                    <br>
-                    <form action="">
-                        <label for="formato">Consulta las grabaciones con el <strong>formato</strong> que desees</label>
-                        <input type="text" id="formato" placeholder="cd, mp3 o wav">
-                        <input type="submit" value="Consultar formato">
-                    </form>
-                    <br>
-                    <form action="">
-                        <label for="estilo">Consulta las grabaciones con los siguientes <strong>estilos</strong> (Rock, Piano, Blues, Heavy, Thrash o Clasica)</label>
-                        <input type="text" id="formato" placeholder="Estilos">
-                        <input type="submit" value="Consultar estilo">
-                    </form>
-                </div>
+            <div class="form-group">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                    <label for="">Escribe el nombre de la grabación que quieras consultar</label>
+                    <input type="text" class="form-control" name="estado">
+                    <div class="text-right mt-3">
+                        <input type="submit" value="Consultar intérprete">
+                    </div>
+                </form>
             </div>
         </div>
+        
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
