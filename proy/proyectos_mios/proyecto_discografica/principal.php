@@ -1,8 +1,8 @@
 <?php 
-	/*comprueba que el usuario haya abierto sesión o redirige*/
-	require 'comprobar_ses.php';
-	require_once 'conexion_bd.php';
-	comprobar_sesion();
+    /*comprueba que el usuario haya abierto sesión o redirige*/
+    require_once "conexion_bd.php";
+	require "comprobar_ses.php"; //Accede a la página de comprobar_sesion.
+	comprobar_sesion(); //Redirige al login.
 ?>
 
 <!DOCTYPE html>

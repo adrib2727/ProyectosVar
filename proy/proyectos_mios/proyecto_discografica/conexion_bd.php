@@ -31,11 +31,11 @@ function comprobar_usuario($nombre, $clave){
 	}
 }
 /*Función que me devuelve las grabaciones que están en buen estado*/
-function grabaciones_devolver_buen_estado(){
+function grabaciones_devolver_estado($estado){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
-	$ins = "SELECT id_seguridad, usuario FROM seguridad WHERE usuario = '$nombre' 
-			AND clave = '$clave'";
+	$ins = "SELECT id_grabacion, estado FROM grabaciones
+			WHERE estado = '$estado'";
 	$resul = $bd->query($ins);	
 	if($resul->rowCount() === 1){		
 		return $resul->fetch();		
