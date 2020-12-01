@@ -31,17 +31,19 @@ function comprobar_usuario($nombre, $clave){
 	}
 }
 /*Función que me devuelve el estado de las grabaciones*/
-function grabaciones_devolver_estado($estado){
+function grabaciones_devolver_estado($titulo_pasado){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
-	$ins = "SELECT id_grabacion, estado FROM grabaciones
-			WHERE estado = '$estado'";
+	$ins = "SELECT estado FROM grabaciones
+			WHERE titulo = '$titulo_pasado'";
 	$resul = $bd->query($ins);	
-	if($resul->rowCount() === 1){		
-		return $resul->fetch();		
-	}else{
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
 		return FALSE;
 	}
+	return $resul;
 }
 
 

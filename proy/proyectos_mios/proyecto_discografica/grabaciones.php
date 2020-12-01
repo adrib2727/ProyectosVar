@@ -12,7 +12,6 @@
             $estado = $_POST["estado"];
         }else{
             session_start();
-            $_SESSION["estado"] = $estado_grabacion;
             header("Location: mostrar_grabaciones.php");
             return;
         }
@@ -44,8 +43,8 @@
         <div class="row justify-content-center">
             <div class="form-group">
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                    <label for="">Escribe el nombre de la grabación que quieras consultar</label>
-                    <input type="text" class="form-control" name="estado">
+                    <label for="">Escribe el nombre de la grabación que quieras consultar. Ejemplo: Grabacion1</label>
+                    <input type="text" class="form-control" name="estado" placeholder="Empezar con mayúscula">
                     <div class="text-right mt-3">
                         <input type="submit" value="Consultar estado">
                     </div>
