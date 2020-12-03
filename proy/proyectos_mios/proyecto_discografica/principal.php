@@ -25,10 +25,7 @@
             border-radius: 5px;
             background-color: white;
             color: black;
-        }
-        .enlaces :hover{
-            background-color: yellow;
-
+            decoration: none;
         }
     </style>
 </head>
@@ -51,7 +48,8 @@
             </div>
         </div>
         <div class="row">
-            <div class="col bg-secondary text-white text-center rounded">
+            <div class="col-2"></div>
+            <div class="col-8 bg-secondary text-white text-center rounded border black">
                 <p class="h2">
                     Consultas disponibles sobre las grabaciones
                 </p>
@@ -61,6 +59,7 @@
                     <a class="enlaces" href="temas.php">Realizar consluta sobre el tema asignado a la grabación</a><br>
                 </p>
             </div>
+            <div class="col-2"></div>
         </div>
     </div>
 

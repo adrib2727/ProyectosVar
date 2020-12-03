@@ -2,20 +2,6 @@
     require "conexion_bd.php";
     require "comprobar_ses.php";
     comprobar_sesion();
-    
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        
-        $estado_grabacion = grabaciones_devolver_estado($_POST["estado"]);
-
-        if($introd_usu === FALSE){
-            $error = TRUE;
-            $estado = $_POST["estado"];
-        }else{
-            session_start();
-            header("Location: mostrar_grabaciones.php");
-            return;
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,23 +18,30 @@
 <body>
     <div class="container-fluid">
         <div class="row">
-            <p>
-                <div class="col bg-dark text-white text-center rounded mb-2">
-                    <p class="display-4">
-                        Estado de las grabaciones
-                    </p>
-                </div>
-            </p>
+            <div class="col bg-dark text-white text-center rounded mb-2">
+                <p class="display-4">
+                    Estado de las grabaciones
+                </p>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="form-group">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                    <label for="">Escribe el nombre de la grabación que quieras consultar. Ejemplo: Grabacion1</label>
-                    <input type="text" class="form-control" name="estado" placeholder="Empezar con mayúscula">
-                    <div class="text-right mt-3">
-                        <input type="submit" value="Consultar estado">
-                    </div>
-                </form>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <h2>Listado de las grabaciones que puedes consultar</h2>
+                <!-- Código PHP que muestra los títulos de las grabaciones. -->
+                <?php
+                    $lista_grabaciones = titulos_grabaciones();
+                    if($lista_grabaciones === false){
+                        echo "No se ha podido conectar con la BD";
+                    }else{
+                        echo "<ul type='none'>"; //Abre la lista de las opciones.
+                        foreach($lista_grabaciones as $lista){
+                            $numero_grab = "mostrar_grabaciones.php?grabacion=".$lista["id_grabacion"];
+                            echo "<li><a href='$numero_grab'>".$lista["titulo"]."</a></li>";
+                        }
+                        echo "</ul>";
+                    }
+                ?>
             </div>
         </div>
         
