@@ -106,6 +106,95 @@ function mostrar_formato_grabaciones($id_grabaciones){
 
 /*-------------------------------------------------------------------------------------------------------*/
 
+/*Función que me muestre la lista de interpretes*/ 
+function titulos_interpretes(){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccioname el formato de las grabaciones segun el id_grabaciones que haya seleccionado.
+	//Formatos está en otra tabla.
+	$ins = "SELECT id_interprete, nombre FROM interpretes";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
+
+/*Función que muestra el nombre del interprete según lo seleccionado*/
+function mostrar_nombre_interpretes($id_interprete){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccionar el nombre del interprete según lo seleccionado.
+	$ins = "SELECT nombre FROM interpretes
+			WHERE id_interprete = $id_interprete";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
+
+/*Función que me va a mostrar la descripción del intérprete*/
+function mostrar_descripcion_interpretes($id_interprete){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccioname el formato de las grabaciones segun el id_grabaciones que haya seleccionado.
+	//Formatos está en otra tabla.
+	$ins = "SELECT descripcion FROM interpretes
+			WHERE id_interprete = $id_interprete";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
+
+/*Función que me va a mostrar el número de grabaciones que tiene*/
+function mostrar_numero_grabaciones($id_interprete){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccionar el número de grabaciones que tiene ese interprete.
+	$ins = "SELECT COUNT(titulo) FROM grabaciones, interpretes 
+			WHERE id_interpretes = id_interprete AND id_interprete = $id_interprete";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
+/*Función que me va a mostrar las grabaciones que ha hecho el intérprete*/
+function mostrar_cuantas_grabaciones_tiene_interprete($id_interprete){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccionar las grabaciones que tiene ese interprete.
+	$ins = "SELECT titulo FROM grabaciones, interpretes 
+			WHERE id_interpretes = id_interprete AND id_interprete = $id_interprete";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
 
 
 

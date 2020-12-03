@@ -2,19 +2,18 @@
     require "conexion_bd.php";
     require "comprobar_ses.php";
     comprobar_sesion();
-    
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        
-        $estado_grabacion = grabaciones_devolver_estado($_POST["estado"]);
 
-        if($introd_usu === FALSE){
-            $error = TRUE;
-            $estado = $_POST["estado"];
+    function mostrar_nombres(){
+        $lista_interpretes = titulos_interpretes();
+        if($lista_interpretes === false){
+            echo "No se ha podido conectar con la BD";
         }else{
-            session_start();
-            $_SESSION["estado"] = $estado_grabacion;
-            header("Location: mostrar_grabaciones.php");
-            return;
+            echo "<ul type='none'>"; //Abre la lista de las opciones.
+            foreach($lista_interpretes as $lista){
+                $numero_inter = "mostrar_interpretes.php?interprete=".$lista["id_interprete"];
+                echo "<li><a href='$numero_inter'>".$lista["nombre"]."</a></li>";
+            }
+            echo "</ul>";
         }
     }
 ?>
@@ -31,25 +30,25 @@
     </style>
 </head>
 <body>
+    <?php require "cabecera.php";?>
     <div class="container-fluid">
         <div class="row">
             <p>
                 <div class="col bg-dark text-white text-center rounded mb-2">
                     <p class="display-4">
-                        Intérprete de la grabación
+                        Listado de intérpretes
                     </p>
                 </div>
             </p>
         </div>
-        <div class="row justify-content-center">
-            <div class="form-group">
-                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
-                    <label for="">Escribe el nombre de la grabación que quieras consultar</label>
-                    <input type="text" class="form-control" name="estado">
-                    <div class="text-right mt-3">
-                        <input type="submit" value="Consultar intérprete">
-                    </div>
-                </form>
+        <div class="row">
+        <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <h2>Listado de los diferentes artístas</h2>
+                <!-- Código PHP que muestra los títulos de las grabaciones. -->
+                <?php
+                    mostrar_nombres(); //Llamada a la función.
+                ?>
             </div>
         </div>
         

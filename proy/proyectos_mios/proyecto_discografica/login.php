@@ -18,93 +18,60 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestor Discográfico</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">  
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Document</title>
     <style>
         body{
-            background-color: #5F626A;
+            background-color: lightgray;
         }
-        .titulo{
-            color: white;
-            text-align: center;
-            margin-top: 10%;
-            font-family:'Cabin', sans-serif;
-            font-size: x-large;
+        h1{
+            font-family: 'Playfair Display', serif;
         }
-        .pestana_login{
-            border-radius: 10px;
-            background-color: white;
-            border: 1px solid black;
-            font-family: 'Libre Franklin', sans-serif;
-            margin-right: 25%;
-            margin-left: 25%;
-            box-shadow: 3px 2px 2px 0px;
-        }
-        .pestana_login h3{
-            text-align: center;
-            color: black;
-        }
-        #formulario{
-            margin-left: 5%;
-            font-size: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        #formulario input{
-            height: 30px;
-            border-radius: 5px;
-        }
-        #usuario{
-            width: 40%;
-        }
-        #contrasena{
-            width: 40%;
-        }
-        #boton{
-            font-size: 20px;
-            font-family: 'Libre Franklin', sans-serif;
-            background-color: #325BBF;
-            color: white;
-        }
-        
     </style>
 </head>
 <body>
-    <div class="titulo">
-        <h1>Gestor Discográfico</h1>
-    </div>
-    <div class="pestana_login">
-        <h3>Acceso corporativo</h3>
-        <div id="formulario">
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> "method="POST">
-            <label for="usuario">Usuario</label>
-            <input name="usuario" type="text" id="usuario" placeholder="Introduce el usuario" 
-            value="<?php if(isset($usuario)) echo $usuario;?>"><br><br>
-            <label for="contrasena">Contraseña</label>
-            <input name="contrasena"type="password" id="contrasena" placeholder="Introduce la contraseña"><br><br>
-            <input id="boton" type="submit" name="" value="Acceder">
-        </form>
-        </div>
-        <div>
-            <?php if(isset($_GET["redirigido"])){
-                echo "<p>Haz login para continuar</p>";
-            }
-            ?>
-        </div>
-        <div>
-            <?php
-                if(isset($error) and $error == true){
-                    echo "<h4>Revise usuario y contraseña</h4>";
-                }
-            ?>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-6 col-md-4 bg-dark mt-5 pt-2 text-white rounded text-center border">
+                <h1>GESTOR DISCOGRÁFICO</h1>
+                <div class="form-group">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                        <label for="">Usuario</label>
+                        <input type="text" name="usuario" class="form-control" placeholder="Escribe tu usuario">
+                        <label for="">Contraseña</label>
+                        <input type="password" name="contrasena" class="form-control" placeholder="Escribe tu contraseña">
+                        <?php
+                            if(isset($error) and $error == true){
+                                echo "Revise usuario y contraseña";
+                            }
+                        ?>
+                        <div class="text-right mt-3">
+                            <input type="submit" class="btn btn-secondary" value="Acceder">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- <div class="col-sm-6 col-md-4">
+                */
+            </div> -->
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
+    </script>
 </body>
 </html>

@@ -2,6 +2,50 @@
     require "comprobar_ses.php";
     require_once "conexion_bd.php";
     comprobar_sesion();
+
+    function mostrar_estado(){
+        //Instancia de la grabación que se ha escogido.
+        $estado = mostrar_estado_grabaciones($_GET["grabacion"]);
+        //Conprobación de si me entra o no en la base de datos.
+        if($estado === false){
+            echo "Error al conectar con la base de datos";
+        }else{
+            foreach($estado as $campo){
+                $est = $campo["estado"];
+                echo "<h2>El estado de la grabación es <strong>".$est."</strong>.</h2>";
+            }
+        }
+    }
+
+    function mostrar_categoria(){
+        //Instancia de la grabación que se ha escogido.
+        $categoria = mostrar_categoria_grabaciones($_GET["grabacion"]);
+
+        //Conprobación de si me entra o no en la base de datos.
+        if($categoria === false){
+            echo "Error al conectar con la base de datos";
+        }else{
+            foreach($categoria as $campo){
+                $cat = $campo["categoria"];
+                echo "<h2>La categoría de la grabación es <strong>".$cat."</strong>.</h2>";
+            }
+        }
+    }
+
+    function mostrar_formato(){
+        //Instancia de la grabación que se ha escogido.
+        $formato = mostrar_formato_grabaciones($_GET["grabacion"]);
+
+        //Conprobación de si me entra o no en la base de datos.
+        if($formato === false){
+            echo "Error al conectar con la base de datos";
+        }else{
+            foreach($formato as $campo){
+                $for = $campo["tipo_formato"];
+                echo "<h2>La categoría de la grabación es <strong>".$for.".</strong></h2>";
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -64,50 +108,17 @@
         <div class="row" id="fila2">
             <div class="col-4 text-center">
                 <?php
-                    //Instancia de la grabación que se ha escogido.
-                    $estado = mostrar_estado_grabaciones($_GET["grabacion"]);
-
-                    //Conprobación de si me entra o no en la base de datos.
-                    if($estado === false){
-                        echo "Error al conectar con la base de datos";
-                    }else{
-                        foreach($estado as $campo){
-                            $est = $campo["estado"];
-                            echo "<h2>El estado de la grabación es <strong>".$est."</strong>.</h2>";
-                        }
-                    }
+                    mostrar_estado(); //Llamada a la función.
                 ?>
             </div>
             <div class="col-4 text-center">
                 <?php
-                    //Instancia de la grabación que se ha escogido.
-                    $categoria = mostrar_categoria_grabaciones($_GET["grabacion"]);
-
-                    //Conprobación de si me entra o no en la base de datos.
-                    if($categoria === false){
-                        echo "Error al conectar con la base de datos";
-                    }else{
-                        foreach($categoria as $campo){
-                            $cat = $campo["categoria"];
-                            echo "<h2>La categoría de la grabación es <strong>".$cat."</strong>.</h2>";
-                        }
-                    }
+                    mostrar_categoria(); //Llamada a la función.
                 ?>
             </div>
             <div class="col-4 text-center">
                 <?php
-                    //Instancia de la grabación que se ha escogido.
-                    $formato = mostrar_formato_grabaciones($_GET["grabacion"]);
-
-                    //Conprobación de si me entra o no en la base de datos.
-                    if($formato === false){
-                        echo "Error al conectar con la base de datos";
-                    }else{
-                        foreach($formato as $campo){
-                            $for = $campo["tipo_formato"];
-                            echo "<h2>La categoría de la grabación es <strong>".$for.".</strong></h2>";
-                        }
-                    }
+                    mostrar_formato(); //Llamada a la función.
                 ?>
             </div>
         </div>

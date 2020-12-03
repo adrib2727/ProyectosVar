@@ -2,6 +2,20 @@
     require "conexion_bd.php";
     require "comprobar_ses.php";
     comprobar_sesion();
+
+    function mostrar_grabaciones(){
+        $lista_grabaciones = titulos_grabaciones();
+        if($lista_grabaciones === false){
+            echo "No se ha podido conectar con la BD";
+        }else{
+            echo "<ul type='none'>"; //Abre la lista de las opciones.
+            foreach($lista_grabaciones as $lista){
+                $numero_grab = "mostrar_grabaciones.php?grabacion=".$lista["id_grabacion"];
+                echo "<li><a class='btn btn-dark mb-2' href='$numero_grab'>".$lista["titulo"]."</a></li>";
+            }
+            echo "</ul>";
+        }
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +34,7 @@
         <div class="row">
             <div class="col bg-dark text-white text-center rounded mb-2">
                 <p class="display-4">
-                    Estado de las grabaciones
+                    Características básicas de las grabaciones
                 </p>
             </div>
         </div>
@@ -30,17 +44,7 @@
                 <h2>Listado de las grabaciones que puedes consultar</h2>
                 <!-- Código PHP que muestra los títulos de las grabaciones. -->
                 <?php
-                    $lista_grabaciones = titulos_grabaciones();
-                    if($lista_grabaciones === false){
-                        echo "No se ha podido conectar con la BD";
-                    }else{
-                        echo "<ul type='none'>"; //Abre la lista de las opciones.
-                        foreach($lista_grabaciones as $lista){
-                            $numero_grab = "mostrar_grabaciones.php?grabacion=".$lista["id_grabacion"];
-                            echo "<li><a href='$numero_grab'>".$lista["titulo"]."</a></li>";
-                        }
-                        echo "</ul>";
-                    }
+                    mostrar_grabaciones(); //Llamada a la función.
                 ?>
             </div>
         </div>

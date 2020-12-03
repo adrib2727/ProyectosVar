@@ -12,35 +12,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
-        body{
-            background-color: lightblue;
+        #titulo{
+            font-family: 'Playfair Display', serif;
         }
-        .enlaces{
-            text-decoration: none;
-            font-size: 20px;
-            color: white;
-            border: 2px solid black;
-            border-radius: 5px;
-            background-color: white;
-            color: black;
-            decoration: none;
+        #titulo h1{
+            font-size: 60px;
         }
     </style>
 </head>
 <body>
+    <?php require "cabecera.php";?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col bg-dark text-white text-center rounded mb-2">
+            <div class="col bg-dark text-white text-center rounded mb-1" id="titulo">
                 <p class="h1">
-                    Consultor discográfico
+                    <h1>GESTOR DISCOGRÁFICO</h1>
                 </p>
                 <p class="h2">
-                    ¡Bienvenido!
+                    ¡Descubre los grandes éxitos de la historia!
                 </p>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>Accede a cualquiera de las opciones para consultar la información de una grabaciones</strong>
+                    <strong>Accede a cualquiera de las opciones para consultar la información de las grabaciones que disponemos</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -54,9 +54,9 @@
                     Consultas disponibles sobre las grabaciones
                 </p>
                 <p>
-                    <a class="enlaces" href="grabaciones.php">Realizar consulta sobre el estado de las grabaciones</a><br>
-                    <a class="enlaces" href="interpretes.php">Realizar consulta sobre el intérprete participante en la grabación</a><br>
-                    <a class="enlaces" href="temas.php">Realizar consluta sobre el tema asignado a la grabación</a><br>
+                    <a class="btn btn-light mb-2" href="grabaciones.php">Características básicas sobre las grabaciones</a><br>
+                    <a class="btn btn-light mb-2" href="interpretes.php">Información sobre los diferentes intérpretes</a><br>
+                    <a class="btn btn-light" href="temas.php">Realizar consluta sobre el tema asignado a la grabación</a><br>
                 </p>
             </div>
             <div class="col-2"></div>
