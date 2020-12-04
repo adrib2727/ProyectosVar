@@ -11,7 +11,7 @@
             echo "<ul type='none'>"; //Abre la lista de las opciones.
             foreach($lista_interpretes as $lista){
                 $numero_inter = "mostrar_interpretes.php?interprete=".$lista["id_interprete"];
-                echo "<li><a class='btn btn-light mb-2' href='$numero_inter'>".$lista["nombre"]."</a></li>";
+                echo "<li><a class='btn btn-light mb-2' href='$numero_inter'>"."<strong>".$lista["nombre"]."</strong>"."</a></li>";
             }
             echo "</ul>";
         }
@@ -30,8 +30,6 @@
     <style>
         body{
             background-color: lightgrey;
-        }
-        #titulo{
             font-family: 'Playfair Display', serif;
         }
     </style>
@@ -46,7 +44,7 @@
             <p>
                 <div class="col bg-dark text-white text-center rounded mb-2">
                     <p class="display-4" id="titulo">
-                        Listado de intérpretes
+                        Intérpretes
                     </p>
                 </div>
             </p>
@@ -54,11 +52,16 @@
         <div class="row">
         <div class="col-1"></div>
             <div class="col-10 text-center">
-                <h2>Listado de los diferentes artístas</h2>
+                <h2 id="subtitulo">Artistas registrados en nuestro sistema: </h2>
                 <!-- Código PHP que muestra los títulos de las grabaciones. -->
                 <?php
                     mostrar_nombres(); //Llamada a la función.
                 ?>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-dark mb-2 ml-2" href="principal.php">Página principal</a><br>
+                </div>
             </div>
         </div>
         

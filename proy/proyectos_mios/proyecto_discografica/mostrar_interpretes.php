@@ -69,6 +69,7 @@
     </style>
 </head>
 <body>
+    <?php require "cabecera.php";?>
     <div class="container-fluid">
         <div class="row">
             <div class="col mb-5"></div>

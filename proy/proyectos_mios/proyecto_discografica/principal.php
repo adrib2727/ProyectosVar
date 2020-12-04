@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Gestor Discográfico</title>
     <style>
         body{
             background-color: lightgrey;

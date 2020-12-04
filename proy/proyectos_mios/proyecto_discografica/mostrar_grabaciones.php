@@ -58,10 +58,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     
-    <title>Estado de grabación</title>
+    <title>Grabaciones</title>
     <style>
         body{
-            background-color: lightyellow;
+            background-color: lightgray;
         }
         #fila1{
             font-family: 'Playfair Display', serif;
@@ -76,11 +76,12 @@
     </style>
 </head>
 <body>
+    <?php require "cabecera.php";?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col bg-warning text-center rounded" id="titulo1">
+            <div class="col bg-light text-center rounded" id="titulo1">
                 <?php
-                    echo "<h2>Grabación ".$_GET["grabacion"]."</h2>";
+                    echo "<h1>Grabación ".$_GET["grabacion"]."</h1>";
                 ?>
             </div>
         </div>
