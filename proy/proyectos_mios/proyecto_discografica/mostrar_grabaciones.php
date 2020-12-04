@@ -56,32 +56,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    
     <title>Estado de grabación</title>
     <style>
         body{
             background-color: lightyellow;
         }
         #fila1{
-            font-family: 'Major Mono Display', monospace;
+            font-family: 'Playfair Display', serif;
         }
         #fila2{
-            font-family: 'Zilla Slab', serif;
+            font-family: 'Playfair Display', serif;
         }
         #titulo1{
-            font-family: 'Major Mono Display', monospace;
+            font-family: 'Playfair Display', serif;
             border: 1px solid black;
-        }
-        .boton_volver{
-            text-decoration: none;
-            font-family: 'Zilla Slab', serif;
-            font-size: 25px;
-            border: 1px solid black;
-            border-radius: 5px;
-            background-color: white;
-            color: black;
         }
     </style>
 </head>
@@ -124,9 +114,9 @@
         </div>
         <div class="row mt-5">
             <div class="col">
-                <a class="boton_volver" href="grabaciones.php">Volver a grabaciones</a><br>
-                <a class="boton_volver" href="principal.php">Volver a la página principal</a><br>
-                <a class="boton_volver" href="logout.php">Cerrar sesión</a>
+                <a class="btn btn-dark mb-2" href="grabaciones.php">Volver a grabaciones</a><br>
+                <a class="btn btn-dark mb-2" href="principal.php">Volver a la página principal</a><br>
+                <a class="btn btn-danger" href="logout.php">Cerrar sesión</a>
             </div>
         </div>
     </div>

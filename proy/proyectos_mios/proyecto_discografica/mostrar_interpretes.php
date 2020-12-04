@@ -16,7 +16,7 @@
         }else{
             foreach($mostrar1 as $campo){
                 $nombre = $campo["nombre"];
-                echo "El nombre el intérprete es ".$nombre;
+                echo "<h4>El nombre el intérprete es ".$nombre;
             }
             foreach($mostrar2 as $campo){
                 $descripcion = $campo["descripcion"];
@@ -24,12 +24,16 @@
             }
             foreach($mostrar3 as $campo){
                 $numero_grab = $campo["COUNT(titulo)"];
-                echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabaciones,";
+                if($numero_grab == 1){
+                    echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabación, la cual han sido: ";
+                }else{
+                    echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabaciones, las cuales han sido: ";
+                }
+                
             }
-            echo " las cuales han sido: ";
             foreach($mostrar4 as $campo){
                 $que_grab = $campo["titulo"];
-                echo " ".$que_grab;
+                echo "<br>".$que_grab."</h4>";
             }
         }
     }
@@ -55,6 +59,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@300&display=swap" rel="stylesheet">
     <title>Estado de grabación</title>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        #titulo{
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -63,7 +75,7 @@
         </div>
         <div class="row">
             <div class="col-3"></div>
-            <div class="col-6 text-center bg-success">
+            <div class="col-6 text-center bg-dark text-white" id="titulo">
                 <?php
                     mostrar_titulo(); //Llamada a la función.
                     texto_mostrar(); //Llamada a la función.
@@ -74,9 +86,9 @@
         
         <div class="row mt-5">
             <div class="col">
-                <a class="boton_volver" href="interpretes.php">Volver a interpretes</a><br>
-                <a class="boton_volver" href="principal.php">Volver a la página principal</a><br>
-                <a class="boton_volver" href="logout.php">Cerrar sesión</a>
+                <a class="btn btn-dark mb-2" href="interpretes.php">Volver a interpretes</a><br>
+                <a class="btn btn-dark mb-2" href="principal.php">Volver a la página principal</a><br>
+                <a class="btn btn-danger" href="logout.php">Cerrar sesión</a>
             </div>
         </div>
     </div>

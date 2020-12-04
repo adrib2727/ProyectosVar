@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Compañías colaboradoras</title>
     <style>
         
     </style>
@@ -13,36 +13,18 @@
 <body>
     <?php require "cabecera.php";?>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <p>
-                <div class="col">
-                    <p class="display-4 text-center bg-warning">
-                        COMPAÑÍAS
-                    </p>
-                </div>
-            </p>
+        <div class="row">
+            <div class="col">
+                <p class="display-4 text-center bg-warning">
+                    COMPAÑÍAS
+                </p>
+            </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-sm-6 col-md-4 text-center">
-                <div class="form-group">
-                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?> "method="POST">
-                        <label for="estado">Consulta las grabaciones con el <strong>estado</strong> que desees</label>
-                        <input id="estado" type="text" placeholder="Bueno, Malo o Regular">
-                        <input type="submit" value="Consultar estado">
-                    </form>
-                    <br>
-                    <form action="">
-                        <label for="formato">Consulta las grabaciones con el <strong>formato</strong> que desees</label>
-                        <input type="text" id="formato" placeholder="cd, mp3 o wav">
-                        <input type="submit" value="Consultar formato">
-                    </form>
-                    <br>
-                    <form action="">
-                        <label for="estilo">Consulta las grabaciones con los siguientes <strong>estilos</strong> (Rock, Piano, Blues, Heavy, Thrash o Clasica)</label>
-                        <input type="text" id="formato" placeholder="Estilos">
-                        <input type="submit" value="Consultar estilo">
-                    </form>
-                </div>
+        <div class="row">
+            <div class="col">
+               <?php
+                    
+               ?>
             </div>
         </div>
     </div>

@@ -20,11 +20,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <title>Document</title>
     <style>
+        body{
+            background-color: lightgrey;
+        }
         #titulo{
             font-family: 'Playfair Display', serif;
         }
         #titulo h1{
             font-size: 60px;
+        }
+        #h12{
+            font-family: 'Playfair Display', serif;
+            color: black;
         }
     </style>
 </head>
@@ -36,7 +43,7 @@
                 <p class="h1">
                     <h1>GESTOR DISCOGRÁFICO</h1>
                 </p>
-                <p class="h2">
+                <p class="h2" id="h11">
                     ¡Descubre los grandes éxitos de la historia!
                 </p>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -50,13 +57,13 @@
         <div class="row">
             <div class="col-2"></div>
             <div class="col-8 bg-secondary text-white text-center rounded border black">
-                <p class="h2">
+                <p class="h2" id="h12">
                     Consultas disponibles sobre las grabaciones
                 </p>
                 <p>
                     <a class="btn btn-light mb-2" href="grabaciones.php">Características básicas sobre las grabaciones</a><br>
-                    <a class="btn btn-light mb-2" href="interpretes.php">Información sobre los diferentes intérpretes</a><br>
-                    <a class="btn btn-light" href="temas.php">Realizar consluta sobre el tema asignado a la grabación</a><br>
+                    <a class="btn btn-light mb-2" href="interpretes.php">Información sobre los intérpretes</a><br>
+                    <a class="btn btn-light" href="companias.php">Compañías colaboradoras</a><br>
                 </p>
             </div>
             <div class="col-2"></div>

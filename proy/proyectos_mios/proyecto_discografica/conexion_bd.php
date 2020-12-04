@@ -93,7 +93,7 @@ function mostrar_formato_grabaciones($id_grabaciones){
 	//Seleccioname el formato de las grabaciones segun el id_grabaciones que haya seleccionado.
 	//Formatos está en otra tabla.
 	$ins = "SELECT tipo_formato FROM grabaciones, formatos
-			WHERE id_formato = id_formatos AND id_grabacion = $id_grabaciones";
+			WHERE id_formato_fk = id_formato AND id_grabacion = $id_grabaciones";
 	$resul = $bd->query($ins);	
 	if(!$resul){		
 		return FALSE;	
@@ -168,7 +168,7 @@ function mostrar_numero_grabaciones($id_interprete){
 	//Consulta.
 	//Seleccionar el número de grabaciones que tiene ese interprete.
 	$ins = "SELECT COUNT(titulo) FROM grabaciones, interpretes 
-			WHERE id_interpretes = id_interprete AND id_interprete = $id_interprete";
+			WHERE id_interprete_fk = id_interprete AND id_interprete = $id_interprete";
 	$resul = $bd->query($ins);	
 	if(!$resul){		
 		return FALSE;	
@@ -185,7 +185,7 @@ function mostrar_cuantas_grabaciones_tiene_interprete($id_interprete){
 	//Consulta.
 	//Seleccionar las grabaciones que tiene ese interprete.
 	$ins = "SELECT titulo FROM grabaciones, interpretes 
-			WHERE id_interpretes = id_interprete AND id_interprete = $id_interprete";
+			WHERE id_interprete_fk = id_interprete AND id_interprete = $id_interprete";
 	$resul = $bd->query($ins);	
 	if(!$resul){		
 		return FALSE;	

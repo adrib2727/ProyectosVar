@@ -11,7 +11,7 @@
             echo "<ul type='none'>"; //Abre la lista de las opciones.
             foreach($lista_interpretes as $lista){
                 $numero_inter = "mostrar_interpretes.php?interprete=".$lista["id_interprete"];
-                echo "<li><a href='$numero_inter'>".$lista["nombre"]."</a></li>";
+                echo "<li><a class='btn btn-light mb-2' href='$numero_inter'>".$lista["nombre"]."</a></li>";
             }
             echo "</ul>";
         }
@@ -24,7 +24,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <title>Intérpretes</title>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        #titulo{
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
     <style>
         
     </style>
@@ -35,7 +45,7 @@
         <div class="row">
             <p>
                 <div class="col bg-dark text-white text-center rounded mb-2">
-                    <p class="display-4">
+                    <p class="display-4" id="titulo">
                         Listado de intérpretes
                     </p>
                 </div>
