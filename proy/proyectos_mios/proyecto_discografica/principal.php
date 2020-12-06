@@ -2,7 +2,7 @@
     /*comprueba que el usuario haya abierto sesión o redirige*/
     require_once "conexion_bd.php";
 	require "comprobar_ses.php"; //Accede a la página de comprobar_sesion.
-	comprobar_sesion(); //Redirige al login.
+	comprobar_sesion(); //Comprueba la sesión
 ?>
 
 <!DOCTYPE html>
@@ -56,17 +56,30 @@
         </div>
         <div class="row">
             <div class="col-2"></div>
-            <div class="col-8 bg-secondary text-white text-center rounded border black">
+            <div class="col-md-8 col-sm-12 bg-secondary text-white text-center rounded border black">
                 <p class="h2" id="h12">
                     Consultas disponibles sobre las grabaciones
                 </p>
                 <p>
                     <a class="btn btn-light mb-2" href="grabaciones.php">Características básicas sobre las grabaciones</a><br>
                     <a class="btn btn-light mb-2" href="interpretes.php">Información sobre los intérpretes</a><br>
-                    <a class="btn btn-light" href="companias.php">Compañías colaboradoras</a><br>
                 </p>
             </div>
-            <div class="col-2"></div>
+            <div class="row justify-content-center mt-4">
+                <div class="col-10">
+                    <div class="row justify-content-around mb-5">
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded" src="https://wallpapercave.com/wp/HaY10Sc.jpg" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded" src="https://media.gettyimages.com/photos/rock-and-roll-guitarist-chuck-berry-performs-his-duck-walk-as-he-his-picture-id74254318?s=612x612" alt="">
+                        </div>
+                        <div class="col-md-4">
+                            <img class="img-fluid rounded" src="https://img2.goodfon.com/wallpaper/nbig/9/38/metallica-james-hetfield.jpg" alt="">
+                        </div>  
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

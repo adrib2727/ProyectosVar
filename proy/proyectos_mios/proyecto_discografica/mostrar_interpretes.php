@@ -3,12 +3,14 @@
     require_once "conexion_bd.php";
     comprobar_sesion();
 
+    //Función que muestra la pequeña descripción de los intérpretes.
     function texto_mostrar(){
         //Instancia de la grabación que se ha escogido.
         $mostrar1 = mostrar_nombre_interpretes($_GET["interprete"]);
         $mostrar2 = mostrar_descripcion_interpretes($_GET["interprete"]);
         $mostrar3 = mostrar_numero_grabaciones($_GET["interprete"]);
         $mostrar4 = mostrar_cuantas_grabaciones_tiene_interprete($_GET["interprete"]);
+        $mostrar5 = mostrar_temas($_GET["interprete"]);
 
         //Conprobación de si me entra o no en la base de datos.
         if($mostrar1 === false or $mostrar2 === false or $mostrar3 === false or $mostrar4 === false){
@@ -24,20 +26,26 @@
             }
             foreach($mostrar3 as $campo){
                 $numero_grab = $campo["COUNT(titulo)"];
+                //Si devulve solamente un dato, ejecuta esa frase, si no en plural.
                 if($numero_grab == 1){
-                    echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabación, la cual han sido: ";
+                    echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabación, la cual ha   sido: ";
                 }else{
                     echo "Este artísta, ha contribuido a nuestro proyecto dotándonos de ".$numero_grab." grabaciones, las cuales han sido: ";
                 }
-                
             }
             foreach($mostrar4 as $campo){
                 $que_grab = $campo["titulo"];
-                echo "<br>".$que_grab."</h4>";
+                echo " ".$que_grab.". ";
+            }
+            echo "Además, ha contribuido en los temas: ";
+            foreach($mostrar5 as $campo){
+                $tema = $campo["nombre_tema"];
+                echo $tema."</h4>";
             }
         }
     }
 
+    //Función que muestra el nombre del intérprete.
     function mostrar_titulo(){
         $mostrar1 = mostrar_nombre_interpretes($_GET["interprete"]);
         foreach($mostrar1 as $campo){
@@ -88,8 +96,6 @@
         <div class="row mt-5">
             <div class="col">
                 <a class="btn btn-dark mb-2" href="interpretes.php">Volver a interpretes</a><br>
-                <a class="btn btn-dark mb-2" href="principal.php">Volver a la página principal</a><br>
-                <a class="btn btn-danger" href="logout.php">Cerrar sesión</a>
             </div>
         </div>
     </div>

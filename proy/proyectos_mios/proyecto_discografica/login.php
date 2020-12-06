@@ -1,14 +1,21 @@
 <?php
     require "conexion_bd.php";
 
+    //Asegura si los datos del formulario han sido traspasados.
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
+        //Función que comprueba los datos en la base de datos.
         $introd_usu = comprobar_usuario($_POST["usuario"], $_POST["contrasena"]);
 
+        //Si el usuario no es correcto, redirige hacia revisar usuario o contraseña.
         if($introd_usu === FALSE){
             $error = TRUE;
             $usuario = $_POST["usuario"];
+        /*Si los datos facilitados son correctos, redirige hacia principal.php 
+        y guarda el usuario en un array SESSION*/
         }else{
+            //Abre la sesión y almacena el usuario dentro del array $_SESSION. Después redirige hacia
+            //principal.php.
             session_start();
             $_SESSION["usuario"] = $introd_usu;
             header("Location: principal.php");
@@ -42,14 +49,24 @@
             <div class="col-sm-6 col-md-4 bg-dark mt-5 pt-2 text-white rounded text-center border">
                 <h1>GESTOR DISCOGRÁFICO</h1>
                 <div class="form-group">
+                    <!-- Los datos del formulario son redirigidos hacia la misma página, en concreto el
+                    código PHP definido en el comienzo de la página. -->
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
                         <label for="">Usuario</label>
                         <input type="text" name="usuario" class="form-control" placeholder="Escribe tu usuario">
                         <label for="">Contraseña</label>
                         <input type="password" name="contrasena" class="form-control" placeholder="Escribe tu contraseña">
                         <?php
+                            //Bloque que se ejecuta en el caso de introducir los datos erroneos.
                             if(isset($error) and $error == true){
                                 echo "Revise usuario y contraseña";
+                            }
+                        ?>
+                        <?php 
+                            /*Código que redirige al login en caso de no haber entrado por él o en caso
+                            de que la cookie se haya agotado.*/
+                            if(isset($_GET["redirigido"])){
+                            echo "<p>Haga login para continuar</p>";
                             }
                         ?>
                         <div class="text-right mt-3">

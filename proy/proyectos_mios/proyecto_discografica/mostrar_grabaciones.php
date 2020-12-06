@@ -12,6 +12,7 @@
         }else{
             foreach($estado as $campo){
                 $est = $campo["estado"];
+                //Muestra los campos de la BD.
                 echo "<h2>El estado de la grabación es <strong>".$est."</strong>.</h2>";
             }
         }
@@ -42,7 +43,7 @@
         }else{
             foreach($formato as $campo){
                 $for = $campo["tipo_formato"];
-                echo "<h2>La categoría de la grabación es <strong>".$for.".</strong></h2>";
+                echo "<h2>El formato de la grabación es <strong>".$for.".</strong></h2>";
             }
         }
     }
@@ -116,8 +117,6 @@
         <div class="row mt-5">
             <div class="col">
                 <a class="btn btn-dark mb-2" href="grabaciones.php">Volver a grabaciones</a><br>
-                <a class="btn btn-dark mb-2" href="principal.php">Volver a la página principal</a><br>
-                <a class="btn btn-danger" href="logout.php">Cerrar sesión</a>
             </div>
         </div>
     </div>

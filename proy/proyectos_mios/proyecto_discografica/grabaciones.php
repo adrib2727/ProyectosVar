@@ -9,7 +9,9 @@
             echo "No se ha podido conectar con la BD";
         }else{
             echo "<ul type='none'>"; //Abre la lista de las opciones.
+            //Bucle que recore los campos de la base de datos.
             foreach($lista_grabaciones as $lista){
+                //Redirige hacia mostrar_grabaciones según la grabación escogida.
                 $numero_grab = "mostrar_grabaciones.php?grabacion=".$lista["id_grabacion"];
                 echo "<li><a class='btn btn-light mb-2' href='$numero_grab'>"."<strong>".$lista["titulo"]."</strong>"."</a></li>";
             }

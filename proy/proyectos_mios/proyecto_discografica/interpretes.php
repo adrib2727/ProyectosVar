@@ -10,6 +10,7 @@
         }else{
             echo "<ul type='none'>"; //Abre la lista de las opciones.
             foreach($lista_interpretes as $lista){
+                //Redirige hacia mostrar_interpretes según el intérprete escogido.
                 $numero_inter = "mostrar_interpretes.php?interprete=".$lista["id_interprete"];
                 echo "<li><a class='btn btn-light mb-2' href='$numero_inter'>"."<strong>".$lista["nombre"]."</strong>"."</a></li>";
             }
