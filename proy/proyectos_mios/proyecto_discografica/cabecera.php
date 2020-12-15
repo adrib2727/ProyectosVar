@@ -11,7 +11,7 @@
             <div class="text-right mt-1 mb-1 ml-1">
                 <a class="btn btn-dark" href="principal.php">Página principal</a>
             </div>
-            <div class="col mt-2 text-center">
+            <div class="col mt-2 text-center text-white">
                 <!-- Muestra el usuario con el que la sesión está iniciada -->
                 <h4>Usuario: <?php print_r($_SESSION["usuario"]["usuario"]);?></h4> 
             </div>
