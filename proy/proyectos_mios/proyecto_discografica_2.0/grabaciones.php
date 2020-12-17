@@ -39,7 +39,7 @@
                 <?php
                     /*Llamada de las funciones residentes en la página conexion_bd.php, dichas funciones
                     son las encargadas de mostrar los campos de los estados de las grabaciones */
-                    $mostrar_tabla = mostrar_tabla_grabaciones();
+                    /* $mostrar_tabla = mostrar_tabla_grabaciones(); */
 
                     if($mostrar_tabla === false){
                         echo "Error al conectar a la base de datos.";

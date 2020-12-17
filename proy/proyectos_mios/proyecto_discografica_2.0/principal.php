@@ -30,7 +30,7 @@
                     ¡Descubre los grandes éxitos de la historia!
                 </p>
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <strong>Accede a cualquiera de las opciones para consultar la información de las grabaciones que disponemos</strong>
+                    <strong>Accede a cualquiera de las dos opciones, puedes consultar, modificar, añadir y eliminar las diferentes grabaciones.</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
@@ -44,8 +44,8 @@
                     Consultas disponibles sobre las grabaciones
                 </p>
                 <p>
-                    <a class="btn btn-light mb-2" href="grabaciones.php">Características básicas sobre las grabaciones</a><br>
-                    <a class="btn btn-light mb-2" href="interpretes.php">Información sobre los intérpretes</a><br>
+                    <a class="btn btn-light mb-2" href=""><strong>Editar</strong> grabaciones</a><br>
+                    <a class="btn btn-light mb-2" href="grabaciones.php"><strong>Consultar</strong> grabaciones</a><br>
                 </p>
             </div> 
         </div>
