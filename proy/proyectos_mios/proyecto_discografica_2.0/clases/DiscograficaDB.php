@@ -34,14 +34,10 @@ class DiscograficaDB{
     }
     /* Esta función es la encargada de realizar la consulta a la tabla seguridad para comprobar el que el 
     usuario introducido sea el correcto. */
-    public function comprobar_usuario($usuario, $clave){
-        $cons = $this->consulta("SELECT id_seguridad, usuario FROM seguridad WHERE usuario = '$nombre' 
+    public function comprobar_usuario($nombre, $clave){
+        $consulta = $this->consulta("SELECT id_seguridad, usuario FROM seguridad WHERE usuario = '$nombre' 
         AND clave = '$clave'");
-        if($cons->rowCount() === 1){
-            return $cons->fetch();
-        }else{
-            return false;
-        }
+        return ($consulta->rowCount() == 1);
     }
 
 }

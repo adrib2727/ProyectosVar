@@ -9,7 +9,7 @@
             </div>
             <div class="col mt-2 text-center text-white">
                 <!-- Muestra el usuario con el que la sesión está iniciada -->
-                <h4>Usuario: <?php print_r($_SESSION["usuario"]["usuario"]);?></h4> 
+                <h4>Usuario: <?php echo $_SESSION["usuario"];?></h4> 
             </div>
             <div class="text-right mt-1 mb-1 ml-1">
                 <a class="btn btn-danger justify-content-end mr-2" href="logout.php">Cerrar sesión</a>
