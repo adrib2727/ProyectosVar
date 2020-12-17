@@ -1,6 +1,5 @@
 <?php
-	require "comprobar_ses.php";	
-
+	require "comprobar_ses.php";
 	/*Destruye la sesión y da la opción de redirigir al login.*/
 	comprobar_sesion();
 	session_destroy();

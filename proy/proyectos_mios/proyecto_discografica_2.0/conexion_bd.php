@@ -35,8 +35,23 @@ function comprobar_usuario($nombre, $clave){
 
 /*---------------------------------------------------------------------------------------------------------*/
 
+function mostrar_tabla_grabaciones($id_grabaciones){
+	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
+	$bd = new PDO($res[0], $res[1], $res[2]);
+	//Consulta.
+	//Seleccioname el estado de las grabaciones segun el id_grabaciones que haya seleccionado.
+	$ins = "SELECT * FROM grabaciones";
+	$resul = $bd->query($ins);	
+	if(!$resul){		
+		return FALSE;	
+	}
+	if($resul->rowCount() === 0){
+		return FALSE;
+	}
+	return $resul;
+}
 /*Función que muestra las diferentes opciones que puede elegir*/
-function titulos_grabaciones(){
+/* function titulos_grabaciones(){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
 	//Consulta
@@ -49,15 +64,15 @@ function titulos_grabaciones(){
 		return FALSE;
 	}
 	return $resul;
-}
+} */
 
 /*Función que me muestre la opción del estado de las grabaciones*/
-function mostrar_estado_grabaciones($id_grabaciones){
+/* function mostrar_estado_grabaciones($id_grabaciones){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
 	//Consulta.
 	//Seleccioname el estado de las grabaciones segun el id_grabaciones que haya seleccionado.
-	$ins = "SELECT estado FROM grabaciones
+	$ins = "SELECT id_grabacion, estado FROM grabaciones
 			WHERE id_grabacion = $id_grabaciones";
 	$resul = $bd->query($ins);	
 	if(!$resul){		
@@ -67,10 +82,10 @@ function mostrar_estado_grabaciones($id_grabaciones){
 		return FALSE;
 	}
 	return $resul;
-}
+} */
 
 /*Función que me muestre el tipo de categoría que tiene la grabación*/
-function mostrar_categoria_grabaciones($id_grabaciones){
+/* function mostrar_categoria_grabaciones($id_grabaciones){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
 	//Consulta.
@@ -85,10 +100,10 @@ function mostrar_categoria_grabaciones($id_grabaciones){
 		return FALSE;
 	}
 	return $resul;
-}
+} */
 
 /*Función que me muestre el tipo de formato en el que está la grabación*/
-function mostrar_formato_grabaciones($id_grabaciones){
+/* function mostrar_formato_grabaciones($id_grabaciones){
 	$res = leer_config(dirname(__FILE__)."/configuracion.xml", dirname(__FILE__)."/configuracion.xsd");
 	$bd = new PDO($res[0], $res[1], $res[2]);
 	//Consulta.
@@ -102,7 +117,7 @@ function mostrar_formato_grabaciones($id_grabaciones){
 		return FALSE;
 	}
 	return $resul;
-}
+} */
 
 /*-------------------------------------------------------------------------------------------------------*/
 

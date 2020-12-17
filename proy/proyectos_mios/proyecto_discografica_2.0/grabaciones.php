@@ -1,23 +1,7 @@
 <?php
-    require "conexion_bd.php";
     require "comprobar_ses.php";
+    require "conexion_bd.php";
     comprobar_sesion();
-
-    function mostrar_grabaciones(){
-        $lista_grabaciones = titulos_grabaciones();
-        if($lista_grabaciones === false){
-            echo "No se ha podido conectar con la BD";
-        }else{
-            echo "<ul type='none'>"; //Abre la lista de las opciones.
-            //Bucle que recore los campos de la base de datos.
-            foreach($lista_grabaciones as $lista){
-                //Redirige hacia mostrar_grabaciones según la grabación escogida.
-                $numero_grab = "mostrar_grabaciones.php?grabacion=".$lista["id_grabacion"];
-                echo "<li><a class='btn btn-light mb-2' href='$numero_grab'>"."<strong>".$lista["titulo"]."</strong>"."</a></li>";
-            }
-            echo "</ul>";
-        }
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +37,25 @@
                 <h2>Listado de las grabaciones que puedes consultar</h2>
                 <!-- Código PHP que muestra los títulos de las grabaciones. -->
                 <?php
-                    mostrar_grabaciones(); //Llamada a la función.
+                    /*Llamada de las funciones residentes en la página conexion_bd.php, dichas funciones
+                    son las encargadas de mostrar los campos de los estados de las grabaciones */
+                    $mostrar_tabla = mostrar_tabla_grabaciones();
+
+                    if($mostrar_tabla === false){
+                        echo "Error al conectar a la base de datos.";
+                    }else{
+                        echo "<table>"; //Apertura de la tabla.
+                        echo "<tr><th>Grabación</th><th>Estado de la grabación</th><th>Categoría de la grabación</th><th>Formato de la grabación</th></tr>";
+
+                        foreach($mostrar_tabla as $campo){
+                            $nombre = $campo["titulo"];
+                            $cat = $campo["categoria"];
+                            $est = $campo["estado"];
+                        }
+                        echo "<tr><td>$nombre</td><td>$cat</td><td>$est</td></tr>";
+                    }
+                    
+
                 ?>
             </div>
         </div>

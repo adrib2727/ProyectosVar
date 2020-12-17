@@ -1,0 +1,15 @@
+body{
+    background-image: url("portada.jpg");
+}
+#titulo{
+    font-family: 'Playfair Display', serif;
+    /* background-color: #F6D473; */
+}
+#titulo h1{
+    font-size: 60px;
+    opacity: 100%;
+}
+#h12{
+    font-family: 'Playfair Display', serif;
+    color: black;
+}

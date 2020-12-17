@@ -1,25 +1,29 @@
 <?php
-    require "conexion_bd.php";
+    require "clases/DiscograficaDB.php";
+    $discografica = new DiscograficaDB();
 
     //Asegura si los datos del formulario han sido traspasados.
     if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-        //Función que comprueba los datos en la base de datos.
-        $introd_usu = comprobar_usuario($_POST["usuario"], $_POST["contrasena"]);
+        $introd_usu = $discografica->comprobar_usuario($_POST["usuario"], $_POST["contrasena"]);
 
-        //Si el usuario no es correcto, redirige hacia revisar usuario o contraseña.
-        if($introd_usu === FALSE){
-            $error = TRUE;
-            $usuario = $_POST["usuario"];
-        /*Si los datos facilitados son correctos, redirige hacia principal.php 
-        y guarda el usuario en un array SESSION*/
+        if(!empty($_POST["usuario"]) and !empty($_POST["contrasena"])){
+            //Si el usuario no es correcto, redirige hacia revisar usuario o contraseña.
+            if($introd_usu === FALSE){
+                $error = TRUE;
+                $usuario = $_POST["usuario"];
+            /*Si los datos facilitados son correctos, redirige hacia principal.php 
+            y guarda el usuario en un array SESSION*/
+            }else{
+                //Abre la sesión y almacena el usuario dentro del array $_SESSION. Después redirige hacia
+                //principal.php.
+                session_start();
+                $_SESSION["usuario"] = $introd_usu;
+                header("Location: principal.php");
+                return;
+            }
         }else{
-            //Abre la sesión y almacena el usuario dentro del array $_SESSION. Después redirige hacia
-            //principal.php.
-            session_start();
-            $_SESSION["usuario"] = $introd_usu;
-            header("Location: principal.php");
-            return;
+            echo "no se ha podido";
         }
     }
 ?>
