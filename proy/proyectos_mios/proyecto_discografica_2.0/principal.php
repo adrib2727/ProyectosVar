@@ -1,6 +1,4 @@
 <?php 
-    /*comprueba que el usuario haya abierto sesión o redirige*/
-    require_once "conexion_bd.php";
 	require "comprobar_ses.php"; //Accede a la página de comprobar_sesion.
 	comprobar_sesion(); //Comprueba la sesión
 ?>
@@ -44,7 +42,7 @@
                     Consultas disponibles sobre las grabaciones
                 </p>
                 <p>
-                    <a class="btn btn-light mb-2" href=""><strong>Editar</strong> grabaciones</a><br>
+                    <a class="btn btn-light mb-2" href="edicion.php"><strong>Editar</strong> grabaciones</a><br>
                     <a class="btn btn-light mb-2" href="grabaciones.php"><strong>Consultar</strong> grabaciones</a><br>
                 </p>
             </div> 
