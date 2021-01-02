@@ -1,0 +1,16 @@
+body{
+    font-family: 'Playfair Display', serif;
+    background-image: url("grab2.jpg");
+}
+.form-group{
+    color: white;
+}
+.subtitulo{
+    color: white;
+}
+#borde1{
+    border: 1px solid black;
+}
+body h1{
+    color: black;
+}

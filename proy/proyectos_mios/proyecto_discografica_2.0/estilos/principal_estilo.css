@@ -1,9 +1,8 @@
 body{
-    background-image: url("portada.jpg");
+    background-image: url("grab3.jpg");
 }
 #titulo{
     font-family: 'Playfair Display', serif;
-    /* background-color: #F6D473; */
 }
 #titulo h1{
     font-size: 60px;

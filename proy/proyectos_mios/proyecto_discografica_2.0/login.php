@@ -6,8 +6,11 @@
     //Asegura si los datos del formulario han sido traspasados.
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($discografica->comprobar_usuario($_POST["usuario"], $_POST["contrasena"])){
+            $error = false;
             $_SESSION["usuario"] = $_POST["usuario"];
             header("location: principal.php");
+        }else{
+            $error = true;
         }
     }
 ?>
@@ -21,15 +24,8 @@
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/login_estilo.css">
     <title>Login Gestor</title>
-    <style>
-        body{
-            background-color: lightgray;
-        }
-        h1{
-            font-family: 'Playfair Display', serif;
-        }
-    </style>
 </head>
 <body>
     <div class="container-fluid">

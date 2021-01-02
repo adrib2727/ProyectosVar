@@ -2,7 +2,6 @@
 	require "comprobar_ses.php"; //Accede a la página de comprobar_sesion.
 	comprobar_sesion(); //Comprueba la sesión
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,16 +34,62 @@
                   </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-2"></div>
+        <div class="row justify-content-center">
             <div class="col-md-8 col-sm-12 text-white text-center">
-                <p class="h2" id="h12">
-                    Consultas disponibles sobre las grabaciones
-                </p>
-                <p>
-                    <a class="btn btn-light mb-2" href="edicion.php"><strong>Editar</strong> grabaciones</a><br>
-                    <a class="btn btn-light mb-2" href="grabaciones.php"><strong>Consultar</strong> grabaciones</a><br>
-                </p>
+                <h1>Administraciones disponibles</h1>
+                <div class="row">
+                    <div class="col-md-4">
+                        <table class="table table-dark table-borderless rounded">
+                            <thead>
+                                <h3>Grabaciones</h3>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="btn btn-light" href="anadir_grab.php">Añadir</a></td>
+                                    <td><a class="btn btn-light" href="borrar_grab.php">Borrar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="btn btn-light" href="mostrar_grab.php">Consultar</a></td>
+                                    <td><a class="btn btn-light" href="editar_grab.php">Editar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="col-md-4">
+                        <table class="table table-dark table-borderless rounded">
+                            <thead>
+                                <h3>Intérpretes</h3>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="btn btn-light" href="anadir_grab.php">Añadir</a></td>
+                                    <td><a class="btn btn-light" href="borrar_grab.php">Borrar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="btn btn-light" href="">Consultar</a></td>
+                                    <td><a class="btn btn-light" href="editar_grab.php">Editar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <table class="table table-dark table-borderless rounded">
+                            <thead>
+                                <h3>Temas</h3>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a class="btn btn-light" href="anadir_grab.php">Añadir</a></td>
+                                    <td><a class="btn btn-light" href="borrar_grab.php">Eliminar</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a class="btn btn-light" href="">Consultar</a></td>
+                                    <td><a class="btn btn-light" href="editar_grab.php">Editar</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> -->
+                </div>
             </div> 
         </div>
     </div>

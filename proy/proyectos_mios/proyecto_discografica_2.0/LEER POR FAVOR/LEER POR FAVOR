@@ -1,3 +1,0 @@
-He facilitado la base de datos para que el programa funcione.
-El usuario es adri1 y la clave es 1234.
-En el caso de que no funcionara la base de datos, si su mysql no tiene contraseña, solo basta con eliminar la que ya hay configurada en la etiqueta <clave>, en el archivo XML de mi aplicación.
