@@ -26,9 +26,9 @@
         <div class="row">
             <div class="col">
                 <?php
-                    $sentencia = $discografica->mostrar_grabaciones();
-                    $matriz = $creaTablas->grabaciones($sentencia);
-                    echo $creaTablas->tabla_de6($matriz);
+                    $sentencia = $discografica->mostrar_interpretes();
+                    $matriz = $creaTablas->interpretes($sentencia);
+                    echo $creaTablas->tabla_de2($matriz);
                 ?>
             </div>
         </div>

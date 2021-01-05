@@ -10,12 +10,17 @@
             $nombre1 = $_POST["pnombre"];
             $estado1 = $_POST["pestado"];
             //Se añaden los datos procedentes del POST.
-            $discografica->modificar_1registro("grabaciones", "estado", "$estado1", "$nombre1");
+            $discografica->modificar_1registro("grabaciones", "estado", $estado1, $nombre1);
         }else if(!empty($_POST["pnombre"]) and !empty($_POST["pcategoria"])){
             $nombre1 = $_POST["pnombre"];
             $categoria1 = $_POST["pcategoria"];
             //Se añaden los datos procedentes del POST.
-            $discografica->modificar_1registro("grabaciones", "categoria", "$categoria1", "$nombre1");
+            $discografica->modificar_1registro("grabaciones", "categoria", $categoria1, $nombre1);
+        }else if(!empty($_POST["pnombre1"]) and !empty($_POST["pnombre2"])){
+            $nombre1 = $_POST["pnombre1"];
+            $nombre2 = $_POST["pnombre2"];
+            //Se añaden los datos procedentes del POST.
+            $discografica->modificar_1registro("grabaciones", "nombre", $nombre2, $nombre1);
         }
     }
 ?>
@@ -45,6 +50,15 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mt-3">
                 <h2 class="subtitulo">Edición de grabaciones y sus características</h2>
+                <h3 class="subtitulo">Editar NOMBRE de la grabación</h3>
+                <div class="form-group">
+                    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                        <label for="nombre1"><strong>Introduce el NOMBRE de la grabación</strong></label>
+                        <input class="form-control" id="nombre1" type="text" name="pnombre1">
+                        <label for="nombre2"><strong>Introduce el nuevo NOMBRE de la grabación</strong></label>
+                        <input class="form-control" id="nombre2" type="text" name="pnombre2">
+                        <input class="btn btn-light mt-2" type="submit" value="Editar">
+                    </form>
                 <h3 class="subtitulo">Editar ESTADO de la grabación</h3>
                 <div class="form-group">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">

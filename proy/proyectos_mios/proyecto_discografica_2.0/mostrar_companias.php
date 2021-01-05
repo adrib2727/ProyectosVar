@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilos/grabaciones_estilo.css">
-    <title>Consulta de grabaciones</title>
+    <title>Consulta compañías</title>
 </head>
 <body>
     <?php require "cabecera.php";?> <!-- Llamada a la cabecera -->
@@ -26,9 +26,9 @@
         <div class="row">
             <div class="col">
                 <?php
-                    $sentencia = $discografica->mostrar_grabaciones();
-                    $matriz = $creaTablas->grabaciones($sentencia);
-                    echo $creaTablas->tabla_de6($matriz);
+                    $sentencia = $discografica->mostrar_companias();
+                    $matriz = $creaTablas->companias($sentencia);
+                    echo $creaTablas->tabla_de2($matriz);
                 ?>
             </div>
         </div>

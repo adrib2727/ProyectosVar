@@ -3,7 +3,10 @@
     require "clases/DiscograficaDB.php";
     $discografica = new DiscograficaDB();
 
-    //Asegura si los datos del formulario han sido traspasados.
+    /*Bloque encargado de comprobar el usuario y la clave del login. Como se puede observar, se realiza
+    una instancia del método de la clase DiscograficaDB que realiza la consulta a la tabla que tiene los
+    datos correctos, una vez comprobado, si no es correcto arroja un error. En el caso contrario se abre la
+    sesión y redirige a la página principal*/
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($discografica->comprobar_usuario($_POST["usuario"], $_POST["contrasena"])){
             $error = false;
@@ -41,7 +44,8 @@
                         <label for="">Contraseña</label>
                         <input type="password" name="contrasena" class="form-control" placeholder="Escribe tu contraseña">
                         <?php
-                            //Bloque que se ejecuta en el caso de introducir los datos erroneos.
+                            /*En caso de que los datos del login sean incorrectos, se ejecuta el 
+                            mensaje de revisar usuario y contraseña.*/
                             if(isset($error) and $error == true){
                                 echo "Revise usuario y contraseña";
                             }

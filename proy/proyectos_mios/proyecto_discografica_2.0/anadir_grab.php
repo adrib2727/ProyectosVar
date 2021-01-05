@@ -7,19 +7,28 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if(!empty($_POST["pnombre"]) and !empty($_POST["pestado"]) and !empty($_POST["pcategoria"])
-        and !empty($_POST["pformato"])){
+        and !empty($_POST["pformato"]) and !empty($_POST["pinterprete"]) and !empty($_POST["pcompania"])){
             $error = false;
             $nombre1 = $_POST["pnombre"];
             $estado1 = $_POST["pestado"];
             $categoria1 = $_POST["pcategoria"];
             $formato1 = $_POST["pformato"];
-            
-            /*Se realiza la instancia de la consulta que añade 3 registros en una tabla. Los parámetros
-            que se facilitan son en este caso, el nombre de la tabla grabaciones, los campos nombre, estado y
-            categoria y finalmente los datos introducidos en el formulario para ser introducidos en sus 
-            respectivas columnas*/
-            $discografica->intro_4registros("grabaciones", "nombre", "estado", "categoria", "id_formato_fk",
-            $nombre1, $estado1, $categoria1, $formato1);
+            $interprete1 = $_POST["pinterprete"];
+            $compania1 = $_POST["pcompania"];
+            /*Comprueba si el nombre de la grabación introducido está ya en la base de datos. Si el nombre
+            es distinto a la consulta comprobadora, ejecuta la inserción, sino lanza un mensaje de error.*/
+            if($nombre1 != $discografica->comprobar_grab($nombre1)){
+                /*Se realiza la instancia de la consulta que añade 6 registros en una tabla. Los parámetros
+                que se facilitan son en este caso, el nombre de la tabla grabaciones, los campos nombre, estado y
+                categoria y finalmente los datos introducidos en el formulario para ser introducidos en sus 
+                respectivas columnas*/
+                $error2 = false;
+                $discografica->intro_6registros("grabaciones", "nombre", "estado", "categoria", "id_formato_fk", 
+                "id_interpretes_fk", "id_compania_fk", $nombre1, $estado1, $categoria1, $formato1, 
+                $interprete1, $compania1);
+            }else{
+                $error2 = true;
+            }
         }else{
             $error = true;
         }
@@ -60,21 +69,49 @@
                         <label for="categoria"><strong>Introduce la CATEGORIA de la grabación</strong></label>
                         <input class="form-control" id="categoria" type="text" name="pcategoria">
                         <label for="formato"><strong>Introduce el FORMATO de la grabación</strong></label>
-                        <select name="pformato" id="formato" value="">
+                        <select class="form-select mt-2" name="pformato" id="formato" value="">
                             <option value="1">MP3</option>
                             <option value="2">FLAK</option>
                             <option value="3">WAV</option>
                             <option value="4">AVI</option>
                             <option value="5">FLAP</option>
-                        </select>
-                        <input class="btn btn-light" type="submit" value="Añadir">
+                        </select><br>
+                        <label for="interprete"><strong>Introduce el INTÉRPRETE participante</strong></label>
+                        <select name="pinterprete" id="interprete" value="">
+                            <option value="1">Angus Young</option>
+                            <option value="2">Kirk Hammett</option>
+                            <option value="3">Malcolm Young</option>
+                            <option value="4">Axl Rose</option>
+                            <option value="5">Slash</option>
+                            <option value="6">Chuck Berry</option>
+                            <option value="7">Flea</option>
+                            <option value="8">James Hetfield</option>
+                            <option value="9">Beethoven</option>
+                            <option value="10">David Lee</option>
+                            <option value="11">Phil Rudd</option>
+                            <option value="12">Pucho</option>
+                        </select><br>
+                        <label for="compania"><strong>Introduce la COMPAÑÍA productora</strong></label>
+                        <select name="pcompania" id="compania" value="">
+                            <option value="1">RCA Records</option>
+                            <option value="2">Columbia Records</option>
+                            <option value="3">MCA Records</option>
+                            <option value="5">Epic Records</option>
+                            <option value="6">Polygram</option>
+                            <option value="8">EXO</option>
+                            <option value="9">Island Records</option>
+                            <option value="10">WEA</option>
+                        </select><br>
+                        <input class="btn btn-light mt-2" type="submit" value="Añadir">
                     </form>
                 </div>
                 <?php
+                    if(isset($error2) and $error2 == true){
+                        echo "<h6 class='subtitulo'><strong>Aviso: Esta grabación ya está registrada.</strong></h6>";
+                    }
                     if(isset($error) and $error == true){
                         echo "<h6 class='subtitulo'><strong>Aviso: Algún dato no ha sido introducido.</strong></h6>";
                     }
-
                 ?>
             </div>
         </div>
