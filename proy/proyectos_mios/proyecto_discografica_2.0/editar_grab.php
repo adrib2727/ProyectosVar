@@ -9,18 +9,35 @@
         if(!empty($_POST["pnombre"]) and !empty($_POST["pestado"])){
             $nombre1 = $_POST["pnombre"];
             $estado1 = $_POST["pestado"];
-            //Se añaden los datos procedentes del POST.
-            $discografica->modificar_1registro("grabaciones", "estado", $estado1, $nombre1);
-        }else if(!empty($_POST["pnombre"]) and !empty($_POST["pcategoria"])){
+            /*Comprueba si la grabación introducida está o no en la base de datos*/
+            if($nombre1 == $discografica->comprobar_grab($nombre1)){
+                $error = false;
+                $discografica->modificar_1registro("grabaciones", "estado", $estado1, $nombre1);
+            }else{
+                $error = true;
+            }
+        }
+        if(!empty($_POST["pnombre"]) and !empty($_POST["pcategoria"])){
             $nombre1 = $_POST["pnombre"];
             $categoria1 = $_POST["pcategoria"];
-            //Se añaden los datos procedentes del POST.
-            $discografica->modificar_1registro("grabaciones", "categoria", $categoria1, $nombre1);
-        }else if(!empty($_POST["pnombre1"]) and !empty($_POST["pnombre2"])){
+            /*Comprueba si la grabación introducida está o no en la base de datos*/
+            if($nombre1 == $discografica->comprobar_grab($nombre1)){
+                $error = false;
+                $discografica->modificar_1registro("grabaciones", "categoria", $categoria1, $nombre1);
+            }else{
+                $error = true;
+            }
+        }
+        if(!empty($_POST["pnombre1"]) and !empty($_POST["pnombre2"])){
             $nombre1 = $_POST["pnombre1"];
             $nombre2 = $_POST["pnombre2"];
-            //Se añaden los datos procedentes del POST.
-            $discografica->modificar_1registro("grabaciones", "nombre", $nombre2, $nombre1);
+            /*Comprueba si la grabación introducida está o no en la base de datos*/
+            if($nombre1 == $discografica->comprobar_grab($nombre1)){
+                $error = false;
+                $discografica->modificar_1registro("grabaciones", "nombre", $nombre2, $nombre1);
+            }else{
+                $error = true;
+            }
         }
     }
 ?>
@@ -59,6 +76,7 @@
                         <input class="form-control" id="nombre2" type="text" name="pnombre2">
                         <input class="btn btn-light mt-2" type="submit" value="Editar">
                     </form>
+                </div>
                 <h3 class="subtitulo">Editar ESTADO de la grabación</h3>
                 <div class="form-group">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
@@ -68,6 +86,7 @@
                         <input class="form-control" id="estado" type="text" name="pestado">
                         <input class="btn btn-light mt-2" type="submit" value="Editar">
                     </form>
+                </div>
                 <h3 class="subtitulo mt-3">Editar CATEGORÍA de la grabación</h3>
                 <div class="form-group">
                     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
@@ -78,6 +97,13 @@
                         <input class="btn btn-light mt-2" type="submit" value="Editar">
                     </form>
                 </div>
+                <?php
+                    /*Bloque que lanza un error si la variable es verdadera, en este caso lanza un mensaje 
+                    si la grabación introducida no exíste en la base de datos.*/
+                    if(isset($error) and $error == true){
+                        echo "<h5 class='subtitulo' style='color:red'><strong>Aviso: Esta grabación no exíste.</strong></h5>";
+                    }
+                ?>
             </div>
         </div>
     </div>

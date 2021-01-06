@@ -26,6 +26,12 @@
         <div class="row">
             <div class="col">
                 <?php
+                    /*Bloque que ejecuta la visualización de la tabla con los datos registrados en la aplicación.
+                    En primer lugar la variable $sentencia tiene almacenada la consulta que se realiza 
+                    (mostrar_grabaciones), seguidamente se crea la variable $matriz que almacena el método
+                    que crea la matríz, tiene como paŕametro la sentencia SQL necesaria para la consulta. 
+                    Finalmente se muestra en pantalla el método tabla_de6, método que dibuja la tabla, tiene como
+                    parámetro la matríz previamente creada.*/
                     $sentencia = $discografica->mostrar_grabaciones();
                     $matriz = $creaTablas->grabaciones($sentencia);
                     echo $creaTablas->tabla_de6($matriz);

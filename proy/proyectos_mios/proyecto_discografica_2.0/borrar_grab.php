@@ -3,13 +3,23 @@
     require "comprobar_ses.php";
     comprobar_sesion();
 
-    $discografica = new DiscograficaDB();
+    $discografica = new DiscograficaDB(); //Instancia de la clase DiscograficaDB.
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $error = false;
+        /*Comprueba que el dato introducido para ser eliminado tenga contenido.*/
         if(!empty($_POST["pnombre"])){
             $nombre1 = $_POST["pnombre"];
-            //Se añaden los datos procedentes del POST.
-            $discografica->eliminar_1fila("grabaciones", "$nombre1");
+            if($nombre1 == $discografica->comprobar_grab($nombre1)){
+                $error2 = false;
+                /*En el método para eliminar una fila completa de una tabla se especifica el nombre de la tabla
+                grabaciones y en este caso el nombre de la grabación que va a ser eliminada.*/
+                $discografica->eliminar_1fila("grabaciones", "$nombre1");
+            }else{
+                $error2 = true;
+            }   
+        }else{
+            $error = true;
         }
     }
 ?>
@@ -46,6 +56,15 @@
                         <input class="btn btn-light mt-2" type="submit" value="Eliminar">
                     </form>
                 </div>
+                <?php
+                /*Bloque que lanza un error si la grabación no ha sido introducida en el formulario.*/
+                    if(isset($error) and $error == true){
+                    echo "<h6 class='subtitulo' style='color:red'><strong>Aviso: No se ha especificado la grabación a eliminar.</strong></h6>";
+                    }
+                    if(isset($error2) and $error2 == true){
+                        echo "<h6 class='subtitulo' style='color:red'><strong>Aviso: Esta grabación no exíste.</strong></h6>";
+                    }
+                ?>
             </div>
         </div>
     </div>

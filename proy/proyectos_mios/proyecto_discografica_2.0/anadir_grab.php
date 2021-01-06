@@ -3,9 +3,10 @@
     require "comprobar_ses.php";
     comprobar_sesion();
 
-    $discografica = new DiscograficaDB();
+    $discografica = new DiscograficaDB(); //Instancia de la clase DiscograficaDB.
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
+        /*Comprueba si todos los datos necesarios del formulario existen.*/
         if(!empty($_POST["pnombre"]) and !empty($_POST["pestado"]) and !empty($_POST["pcategoria"])
         and !empty($_POST["pformato"]) and !empty($_POST["pinterprete"]) and !empty($_POST["pcompania"])){
             $error = false;
@@ -18,11 +19,11 @@
             /*Comprueba si el nombre de la grabación introducido está ya en la base de datos. Si el nombre
             es distinto a la consulta comprobadora, ejecuta la inserción, sino lanza un mensaje de error.*/
             if($nombre1 != $discografica->comprobar_grab($nombre1)){
+                $error2 = false;
                 /*Se realiza la instancia de la consulta que añade 6 registros en una tabla. Los parámetros
                 que se facilitan son en este caso, el nombre de la tabla grabaciones, los campos nombre, estado y
                 categoria y finalmente los datos introducidos en el formulario para ser introducidos en sus 
                 respectivas columnas*/
-                $error2 = false;
                 $discografica->intro_6registros("grabaciones", "nombre", "estado", "categoria", "id_formato_fk", 
                 "id_interpretes_fk", "id_compania_fk", $nombre1, $estado1, $categoria1, $formato1, 
                 $interprete1, $compania1);
@@ -106,11 +107,14 @@
                     </form>
                 </div>
                 <?php
+                    /*Bloques que lanzan un error si las variables de error son verdaderas. En el primer caso
+                    informa que una grabación ya ha sido introducida y en el segundo caso informa que algun 
+                    dato necesario en el formulario no ha sido introducido.*/
                     if(isset($error2) and $error2 == true){
-                        echo "<h6 class='subtitulo'><strong>Aviso: Esta grabación ya está registrada.</strong></h6>";
+                        echo "<h6 class='subtitulo' style='color:red'><strong>Aviso: Esta grabación ya está registrada.</strong></h6>";
                     }
                     if(isset($error) and $error == true){
-                        echo "<h6 class='subtitulo'><strong>Aviso: Algún dato no ha sido introducido.</strong></h6>";
+                        echo "<h6 class='subtitulo' style='color:red'><strong>Aviso: Algún dato no ha sido introducido.</strong></h6>";
                     }
                 ?>
             </div>

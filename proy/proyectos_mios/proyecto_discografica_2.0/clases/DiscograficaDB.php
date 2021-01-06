@@ -95,6 +95,4 @@ class DiscograficaDB{
         WHERE nombre = '$nombre'");
         return ($consulta->rowCount() == 1);
     }
-
-
 }

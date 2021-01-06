@@ -1,5 +1,16 @@
 <?php
+/*Clase encargada de representar las tablas para la consulta de información almacenada en la aplicación, 
+esta clase no contará con atributos, contendrá los métodos necesarios para la creación de tablas a 
+través de matrices.*/
 class CreacionTabla{
+    /*Métodos encargados de coger los campos necesarios de la base de datos. Para esta función, va a
+    ser necesario un parámetro que va a contener la consulta que se realiza a la base de datos ($sentencia)
+    , para depués ser mostrada en la tabla. Seguidamente, dentro del método se va a crear una variable 
+    que va a contener una matríz de dos columnas, y tantas filas como la tabla sea de extensa, por ello, 
+    en primer lugar se va a especificar el nombre de la columna (Nombre, estado...) y después un bucle
+    foreach que va a dividir la sentencia en registros con el propio nombre de las columnas de la base de
+    datos que se quiere mostrar.
+    Finalmente el método va a devolver la matríz que ha sido creada, para ser utilizada en una tabla.*/
     public function grabaciones($sentencia){
         $matriz = array(array("Nombre", "Estado", "Categoria", "Formato", "Intérprete", "Compañía productora"));
         foreach($sentencia as $registro){
@@ -8,7 +19,8 @@ class CreacionTabla{
         }
         return $matriz;
     }
-
+    /*Método que cumple la misma función que el anterior, pero en este caso, para mostrar los intérpretes de la 
+    base de datos.*/
     public function interpretes($sentencia){
         $matriz = array(array("Nombre del intérprete", "Descripción"));
         foreach($sentencia as $registro){
@@ -16,7 +28,8 @@ class CreacionTabla{
         }
         return $matriz;
     }
-
+    /*Método que cumple la misma función que el anterior, pero en este caso, para mostrar las compañías de la 
+    base de datos.*/
     public function companias($sentencia){
         $matriz = array(array("Nombre de la compañía", "Dirección"));
         foreach($sentencia as $registro){
@@ -24,7 +37,19 @@ class CreacionTabla{
         }
         return $matriz;
     }
-    
+    /*Método encargado de dibujar la tabla. Para ser efectivo, se le va a especificar
+    el parámetro de la matríz que se ha creado con anterioridad, con los datos que ya han sido recogidos 
+    en el método anterior (grabaciones). En primer lugar se creará una variable
+    llamada $tabla, que contendrá la disposición de la misma. A continuación, mostrará en la cabecera de
+    la tabla el título de las columnas. Como se puede observar, ocupa la posición 0 en el eje vertical y
+    seguidamente tantas posiciones en el eje horizontal como datos hayan sido especificados en el 
+    método anterior, en este caso 6 datos.
+    Como la cabecera ocupa la posición 0, se va a inicializar un contador comenzando en
+    1, que muestre tantas filas, como datos hayan en la matríz, posible gracias al bucle while que irá
+    incrementando el contador.
+    Por ello se puede observar que habrán tantas filas como incrementos en el contador se realicen, 
+    pero las columnas siempre serán 6.
+    Finalmente el método devuelve la variable que contiene la tabla.*/
     public function tabla_de6($matriz){
         $tabla = 
         "<table class='table table-light mt-2 text-center'>
@@ -53,7 +78,8 @@ class CreacionTabla{
         
         return $tabla;
     }
-
+    /*Método idéntico al anterior, pero en este caso solo con dos columnas y tantas filas como datos
+    hayan en la matríz.*/
     public function tabla_de2($matriz){
         $tabla = 
         "<table class='table table-light mt-2 text-center'>
