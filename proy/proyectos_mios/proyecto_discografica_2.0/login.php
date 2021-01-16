@@ -10,6 +10,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($discografica->comprobar_usuario($_POST["usuario"], $_POST["contrasena"])){
             $error = false;
+            /*Crea un array con la sesión almacenada y el nombre de usuario y redirige a principal.php*/
             $_SESSION["usuario"] = $_POST["usuario"];
             header("location: principal.php");
         }else{
